@@ -72,6 +72,6 @@ class ModelManager(ModelManagerTemplate):
 
     def evaluate_model(self) -> Tuple[Any, Any, int]:
         loss = log_loss(self.y_test, self.model.predict_proba(self.x_test))
-        accuracy = self.model.score(self._test, self.y_test)
+        accuracy = self.model.score(self.x_test, self.y_test)
         # return loss, len(self.x_test), {"accuracy": accuracy}
         return loss, accuracy, len(self.x_test)
