@@ -6,9 +6,9 @@ from flwr_datasets import FederatedDataset
 
 class DataManager(DataManagerTemplate):
     def __init__(self):
-        (self.x_train, self.x_test), (self.y_train, self.y_test) = self._load_data()
+        (self.x_train, self.x_test), (self.y_train, self.y_test) = self._prepare_data()
 
-    def _load_data(self, partition_id=1) -> None:
+    def _prepare_data(self, partition_id=1) -> Any:  # TODO adjust
         """Reference: https://github.com/adap/flower/blob/main/examples/sklearn-logreg-mnist/client.py"""
         fds = FederatedDataset(dataset="mnist", partitioners={"train": 3})
         dataset = fds.load_partition(partition_id, "train").with_format("numpy")
