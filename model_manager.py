@@ -1,15 +1,11 @@
 import warnings
 from typing import Any, Tuple
 
-import mlflow
-import mlflow.sklearn
 import numpy as np
 from data_manager import DataManager
 from flops_utils.ml_repo_templates import ModelManagerTemplate
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
-
-mlflow.sklearn.autolog()
 
 
 class ModelManager(ModelManagerTemplate):
